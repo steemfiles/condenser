@@ -96,7 +96,7 @@ To run condenser in production mode, run:
 yarn run production
 ```
 
-When launching condenser in production mode it will automatically use 1
+When launching condenser in production mode it will automatically use one
 process per available core. You will be able to access the front-end at
 http://localhost:8080 by default.
 
@@ -147,6 +147,15 @@ edit the settings directly in `config/production.json`. If you're running
 in development mode, copy `config/production.json` to `config/dev.json`
 with `cp config/production.json config/dev.json` and adjust settings in
 `dev.json`.
+
+There are various places where the Steemit logo appears in the file tree. You
+must change these in order to avoid violating the copy-agreement. The image that
+appears in the upper-left of each displayed page is stored in
+`./src/app/components/elements/SteemLogo/index.js` as a JavascriptSX object
+returned value. This code returns an SVG which has to be specially encoded in
+order for it to be JavascriptSX. Another file is
+`\src\app\client_config.js`. You need to change the strings set as steemit, in
+its various forms, `./src/app/assets/images/favicon.ico` and all of the favorite images in `./src/app/assets/images/favicons`. 
 
 If you're intending to run condenser in a production environment one
 configuration option that you will definitely want to edit is
